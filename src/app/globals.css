@@ -5,33 +5,14 @@
 }
 
 html {
+  --font: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", Icons16, sans-serif;
+  --font-title: Georgia, 'Times New Roman', Times, serif;
   --font-size: 1.25rem;
+  --color: #3A3A3C;
+  --color-light: #edf;
+  --color-dark: #636366;
+  --color-full: #B8B57A;
   --radius: 0.25rem;
-  font-weight: normal;
-  color: rgba(0, 0, 0, 0.9);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", Icons16, sans-serif;
-  padding: 0px !important;
-}
-/* /styles/global.css */
-nav {
-  padding: 10px;
-}
-
-.menu {
-  display: flex;
-  list-style: none;
-  padding: 0;
-}
-
-.menu Link {
-  margin-right: 20px; 
-}
-
-.menu Link {
-  color: white;
-  text-decoration: none;
 }
 
 body {
@@ -72,6 +53,35 @@ label {
   display: block;
   margin-bottom: 0.25rem;
 }
+.botao-home{
+  text-decoration: none;
+  color: #3A3A3C; /* Preto acinzentado */
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+.menu a {
+  text-decoration: none;
+  color: #3A3A3C; /* Preto acinzentado */
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+/* Efeitos de Hover */
+.menu a:hover {
+  background-color: #D1D1D6; /* Cinza claro */
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Efeitos de foco */
+.menu a:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #D1D1D6;
+}
 
 input,
 textarea {
@@ -107,8 +117,8 @@ button {
   border: none;
   border-radius: var(--radius);
   transition: 0.1s;
-  background: var(--color);
-  color: var(--color-dark);
+  background: var(--color-full);
+  color: var(--color);
   padding: 0.6em 1.2em;
   margin-bottom: 1rem;
   line-height: 1;
@@ -151,46 +161,4 @@ img {
   gap: 1.5rem;
   list-style: none;
   padding: 0;
-}
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }

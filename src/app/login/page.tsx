@@ -1,4 +1,7 @@
+'use client';
 import React, { useState } from 'react';
+import Link from "next/link";
+
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -19,6 +22,7 @@ export default function Login() {
 
   return (
     <div>
+      <Link href="/" className='botao-home'>Home</Link>
       <h1>Login</h1>
       <form onSubmit={handleLogin}>
         <label htmlFor="email">Email:</label>

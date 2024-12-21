@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Origamid Next',
-  description: 'Criado por Origamid',
+  title: 'Consultório Odontologico Bitar',
+  description: 'Criado por Myllena Bitar',
 };
 
 export default function RootLayout({
