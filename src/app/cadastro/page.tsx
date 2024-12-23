@@ -1,24 +1,16 @@
 'use client';
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
 import Link from "next/link";
 
-export default function Login() {
+export default function Cadastro() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const router = useRouter();
+  const [nome, setNome] = useState('');
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      router.push('/dashboard'); // Redireciona para a página protegida
-    }
-  }, []);
-
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleCadastro = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:3000/api/login', {
+    const response = await fetch('http://localhost:3000/api/cadastro', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -28,18 +20,24 @@ export default function Login() {
 
     const json = await response.json();
     if (response.ok) {
-      localStorage.setItem('token', json.token); // Armazena o token
-      router.push('/dashboard');
+      alert('Cadastro realizado com sucesso!');
     } else {
-      alert('Erro ao fazer login. Verifique suas credenciais.');
+      alert(`Erro: ${json.message}`);
     }
   };
 
   return (
     <div>
       <Link href="/" className="botao-home">⬅ Home</Link>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
+      <h1>Cadastro</h1>
+      <form onSubmit={handleCadastro}>
+      <label htmlFor="Nome Completo">Nome Completo:</label>
+        <input
+          type="nome"
+          id="nome"
+          value={nome}
+          onChange={(e) => setNome(e.target.value)}
+        />
         <label htmlFor="email">Email:</label>
         <input
           type="email"
@@ -56,11 +54,8 @@ export default function Login() {
           onChange={(e) => setSenha(e.target.value)}
         />
 
-        <button type="submit">Entrar</button>
+        <button type="submit">Cadastrar</button>
       </form>
-      <p>
-        Não tem uma conta? <Link href="/cadastro">Cadastre-se</Link>
-      </p>
     </div>
   );
 }
