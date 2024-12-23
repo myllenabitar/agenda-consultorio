@@ -7,10 +7,11 @@ import Modal from "react-modal";
 import "react-calendar/dist/Calendar.css";
 import styles from "../../styles/Home.module.css";
 import { format } from "date-fns";
+import withAuth from '../components/withAuth';
 
 const professionals = ["Dra. Bitar", "Dra. Souza", "Dr. Oliveira"];
 
-export default function Agendamentos() {
+function Agendamentos() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedProfessional, setSelectedProfessional] = useState<string | null>(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -151,3 +152,4 @@ export default function Agendamentos() {
     </main>
   );
 }
+export default withAuth(Agendamentos);
