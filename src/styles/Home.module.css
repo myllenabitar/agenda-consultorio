@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .calendar {
+    margin-bottom: 20px;
+  }
+  
+  .available {
+    background-color: #4caf50;
+    color: white;
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .unavailable {
+    background-color: #f44336;
+    color: white;
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: not-allowed;
+  }
+  
+  .closeButton {
+    background-color: #555;
+    color: white;
+    padding: 10px 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .appointments {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
