@@ -22,7 +22,7 @@ export default function Login() {
 
   return (
     <div>
-      <Link href="/" className='botao-home'>Home</Link>
+      <Link href="/" className='botao-home'>⬅ Home</Link>
       <h1>Login</h1>
       <form onSubmit={handleLogin}>
         <label htmlFor="email">Email:</label>

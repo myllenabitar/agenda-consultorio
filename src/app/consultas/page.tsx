@@ -30,7 +30,7 @@ export default function Consultas() {
   return (
     <main>
       <nav>
-      <Link className="botao-home" href="/">Home</Link> 
+      <Link className="botao-home" href="/">⬅ Home</Link> 
       <h1>Consultas</h1>
     </nav>
     <div className={styles.container}>
