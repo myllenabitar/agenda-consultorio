@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center">Agenda Consultório</h1>
 
-## Getting Started
+<h2>Badges:</h2>
+Ultima versão: Dezembro 2024.
 
-First, run the development server:
+<h2>Descrição de Projeto</h2>
+Sistema de agendamento de consultas de um consultório, com login e cadastros, feito com Next.JS e Typescript.
+<h2>Status do Projeto</h2><h4 align="center">🚧: Projeto em Construção! 🚧:</h4>
 
-```bash
+<h2>:hammer:Funcionalidades e Demonstração da Aplicação</h2>
+O projeto começa da pagina home, possui um menu de navegação onde podemos ir pra login, agendamentos ou fazer o cadastro. Nos agendamentos podemos clicar na data que queremos e aparecerá uma página para seleção dos horários e o profissional que deseja. Logo após a seleção, em baixo mostra-se os agendamentos.
+
+<h2>Acesso ao projeto</h2>
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<h2> Tecnologias Utilizadas</h2>
+<h3>Next.JS</h3>
+<h3>TypeScript</h3>
+<h3> CSS</h3>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<H2>Autores</H2>
+<h3>Myllena Bitar</h3>
+<img src="https://avatars.githubusercontent.com/u/111917539?v=4" alt="Myllena Bitar">
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
