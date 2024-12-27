@@ -94,7 +94,7 @@ export default function Agendamentos() {
         />
       </div>
 
-        <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+        <Modal isOpen={modalIsOpen} onRequestClose={closeModal} appElement={document.getElementById('__next') || document.body}>
           <h2>
             {editingIndex !== null
               ? `Editar agendamento para ${format(selectedDate!, "dd/MM/yyyy")}`
