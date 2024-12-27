@@ -1,38 +1,37 @@
 'use client';
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
 import Link from "next/link";
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const router = useRouter();
+  const [mensagem, setMensagem] = useState('');
+  const [usuario, setUsuario] = useState<string | null>(null);
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      router.push('/dashboard'); // Redireciona para a página protegida
-    }
-  }, []);
-
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:3000/api/login', {
+    fetch('http://localhost:3000/api/login', {
       method: 'POST',
+      body: JSON.stringify({ email, senha }),
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email, senha }),
-    });
-
-    const json = await response.json();
-    if (response.ok) {
-      localStorage.setItem('token', json.token); // Armazena o token
-      router.push('/dashboard');
-    } else {
-      alert('Erro ao fazer login. Verifique suas credenciais.');
-    }
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.success) {
+          setMensagem('Login bem-sucedido!');
+          setUsuario(json.usuario.nome);
+        } else {
+          setMensagem(json.message || 'Erro ao realizar o login.');
+          setUsuario(null);
+        }
+      })
+      .catch(() => {
+        setMensagem('Erro de rede. Tente novamente mais tarde.');
+        setUsuario(null);
+      });
   };
 
   return (
@@ -57,10 +56,18 @@ export default function Login() {
         />
 
         <button type="submit">Entrar</button>
+        <Link href="/cadastro"> Ou Cadastre-se</Link>
       </form>
-      <p>
-        Não tem uma conta? <Link href="/cadastro">Cadastre-se</Link>
-      </p>
+
+      {/* Mensagem de validação */}
+      {mensagem && <p>{mensagem}</p>}
+
+      {/* Usuário logado */}
+      {usuario && (
+        <div className="usuario-logado">
+          <p>Usuário logado: {usuario}</p>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,24 +1,36 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
+interface LoginRequest extends NextApiRequest {
+    body: {
+        email: string;
+        senha: string;
+    };
+}
 
-const users = new Map<string, string>();
+interface LoginResponse extends NextApiResponse {
+    json: (body: { success: boolean; usuario?: { nome: string }; message?: string }) => void;
+}
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'POST') {
+export default function handler(req: LoginRequest, res: LoginResponse) {
     const { email, senha } = req.body;
 
-    if (!email || !senha) {
-      return res.status(400).json({ message: 'Email e senha são obrigatórios.' });
+    // Dados fictícios de teste
+    const emailValido = 'teste@dominio.com';
+    const senhaValida = '123456';
+
+    // Verificando se as credenciais são válidas
+    if (email === emailValido && senha === senhaValida) {
+        return res.status(200).json({
+            success: true,
+            usuario: {
+                nome: 'John Doe'
+            }
+        });
+    } else {
+        return res.status(401).json({
+            success: false,
+            message: 'Credenciais inválidas'
+        });
     }
-
-    if (!users.has(email) || users.get(email) !== senha) {
-      return res.status(401).json({ message: 'Credenciais inválidas.' });
-    }
-
-    
-    const token = `token-${email}`;
-    return res.status(200).json({ message: 'Login bem-sucedido.', token });
-  }
-
-  return res.status(405).json({ message: 'Método não permitido.' });
 }
+  

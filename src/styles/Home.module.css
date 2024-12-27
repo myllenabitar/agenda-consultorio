@@ -48,4 +48,13 @@
     margin-top: 20px;
     text-align: left;
   }
+  .usuario-logado {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
   
