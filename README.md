@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📅 Agenda Consultório
 
-## Getting Started
+Sistema de agendamento de consultas para consultórios, com funcionalidades de login, cadastro e gerenciamento de horários. Desenvolvido utilizando **Next.JS** e **TypeScript** para criar uma aplicação moderna e eficiente.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📝 Sobre o Projeto
+Este projeto visa facilitar o agendamento de consultas em consultórios. Com uma interface intuitiva, os usuários podem navegar entre a página inicial, realizar login, cadastrar-se e agendar horários com os profissionais disponíveis. A aplicação utiliza **Next.JS** para otimizar o desempenho e **TypeScript** para maior segurança no código.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Status do Projeto
+🚧 **Projeto em Construção!** 🚧
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ⚙️ Funcionalidades
+- Página inicial com menu de navegação.
+- Login e cadastro de usuários.
+- Agendamento de consultas:
+  - Seleção de datas no calendário.
+  - Escolha de horário e profissional.
+  - Visualização dos agendamentos realizados.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tecnologias Utilizadas
+- **Next.JS**
+- **TypeScript**
+- **CSS**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📂 Como Rodar o Projeto
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/agenda-consultorio.git
