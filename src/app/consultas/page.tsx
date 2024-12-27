@@ -130,20 +130,29 @@ export default function Agendamentos() {
           </div>
         </Modal>
         <div className={styles.appointments}>
-          <h2>Seus Agendamentos:</h2>
-          {appointments.map((appt, index) => (
-            <div key={index} className={styles.appointment}>
-              <p>
-                {appt.date.toLocaleDateString()} às {appt.hour} com{" "}
-                {appt.professional}
-              </p>
-                <div className={styles.container}>
-                  <button className={styles.edit} onClick={() => openModal(appt.date, index)}>Mudar Agendamento</button>
-                  <button className={styles.edit} onClick={() => deleteAppointment(index)}>Remover Agendamento</button>
-                </div>
-        </div>
-      ))}
+  <h2 className={styles.appointmentsTitle}>Seus Agendamentos:</h2>
+  {appointments.map((appt, index) => (
+    <div key={index} className={styles.appointmentBlock}>
+      <p>
+        {appt.date.toLocaleDateString()} às {appt.hour} com {appt.professional}
+      </p>
+      <div className={styles.buttonGroup}>
+        <button
+          className={styles.edit}
+          onClick={() => openModal(appt.date, index)}
+        >
+          Editar
+        </button>
+        <button
+          className={styles.delete}
+          onClick={() => deleteAppointment(index)}
+        >
+          X
+        </button>
+      </div>
     </div>
+    ))}
+  </div>
     </main>
   );
 }
