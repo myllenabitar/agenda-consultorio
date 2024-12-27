@@ -8,7 +8,6 @@ import "react-calendar/dist/Calendar.css";
 import styles from "../../styles/Home.module.css";
 import { format } from "date-fns";
 
-
 const professionals = ["Dra. Bitar", "Dra. Souza", "Dr. Oliveira"];
 
 export default function Agendamentos() {
@@ -19,51 +18,33 @@ export default function Agendamentos() {
     { date: Date; hour: string; professional: string }[]
   >([]);
   const [availableHours, setAvailableHours] = useState<string[]>([]);
-  const [unavailableHours, setUnavailableHours] = useState<
-    { date: Date; hour: string }[]
-  >([]);
+  const [editingIndex, setEditingIndex] = useState<number | null>(null);
 
   const generateRandomHours = () => {
     const allHours = [
       "08:00", "09:00", "10:00", "11:00", "12:00",
       "13:00", "14:00", "15:00", "16:00", "17:00",
     ];
-    const randomHours = allHours
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 5); 
-    setAvailableHours(randomHours);
-  };
-
-  const generateRandomUnavailableHours = () => {
-    const newUnavailableHours = [];
-    for (let i = 0; i < 10; i++) {
-      const randomDate = new Date();
-      randomDate.setDate(randomDate.getDate() + Math.floor(Math.random() * 30));
-      const randomHour =
-        availableHours[Math.floor(Math.random() * availableHours.length)];
-      newUnavailableHours.push({ date: randomDate, hour: randomHour });
-    }
-    setUnavailableHours(newUnavailableHours);
+    setAvailableHours(allHours);
   };
 
   useEffect(() => {
     generateRandomHours();
   }, []);
 
-  useEffect(() => {
-    if (availableHours.length > 0) {
-      generateRandomUnavailableHours();
-    }
-  }, [availableHours]);
-
-  const openModal = (date: Date) => {
+  const openModal = (date: Date, index: number | null = null) => {
     setSelectedDate(date);
+    if (index !== null) {
+      setEditingIndex(index);
+      setSelectedProfessional(appointments[index].professional);
+    }
     setModalIsOpen(true);
   };
 
   const closeModal = () => {
     setModalIsOpen(false);
     setSelectedProfessional(null);
+    setEditingIndex(null);
   };
 
   const handleAppointment = (hour: string) => {
@@ -72,20 +53,29 @@ export default function Agendamentos() {
       return;
     }
 
-    setAppointments((prev) => [
-      ...prev,
-      { date: selectedDate, hour, professional: selectedProfessional },
-    ]);
+    if (editingIndex !== null) {
+      setAppointments((prev) =>
+        prev.map((appt, index) =>
+          index === editingIndex
+            ? { date: selectedDate, hour, professional: selectedProfessional }
+            : appt
+        )
+      );
+      alert("Agendamento atualizado com sucesso!");
+    } else {
+      setAppointments((prev) => [
+        ...prev,
+        { date: selectedDate, hour, professional: selectedProfessional },
+      ]);
+      alert("Agendamento realizado com sucesso!");
+    }
+
     closeModal();
-    alert("Agendamento realizado com sucesso!");
   };
 
-  const isUnavailable = (date: Date, hour: string) => {
-    return unavailableHours.some(
-      (unavailable) =>
-        unavailable.date.toDateString() === date.toDateString() &&
-        unavailable.hour === hour
-    );
+  const deleteAppointment = (index: number) => {
+    setAppointments((prev) => prev.filter((_, i) => i !== index));
+    alert("Agendamento removido com sucesso!");
   };
 
   return (
@@ -102,11 +92,13 @@ export default function Agendamentos() {
           onClickDay={(value) => openModal(value)}
           className={styles.calendar}
         />
+      </div>
 
         <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
           <h2>
-            Agendar para{" "}
-            {selectedDate ? format(selectedDate, "dd/MM/yyyy") : "Selecionar"}
+            {editingIndex !== null
+              ? `Editar agendamento para ${format(selectedDate!, "dd/MM/yyyy")}`
+              : `Agendar para ${selectedDate ? format(selectedDate, "dd/MM/yyyy") : "Selecionar"}`}
           </h2>
           <div>
             <h3>Selecione um profissional:</h3>
@@ -126,30 +118,32 @@ export default function Agendamentos() {
           </div>
           <div>
             <h3>Horários disponíveis:</h3>
-            {availableHours.map((hour) =>
-              selectedDate && !isUnavailable(selectedDate, hour) ? (
-                <button
-                  key={hour}
-                  className={styles.available}
-                  onClick={() => handleAppointment(hour)}
-                >
-                  {hour}
-                </button>
-              ) : null
-            )}
+            {availableHours.map((hour) => (
+              <button
+                key={hour}
+                className={styles.available}
+                onClick={() => handleAppointment(hour)}
+              >
+                {hour}
+              </button>
+            ))}
           </div>
         </Modal>
         <div className={styles.appointments}>
           <h2>Seus Agendamentos:</h2>
           {appointments.map((appt, index) => (
-            <p key={index}>
-              {appt.date.toLocaleDateString()} às {appt.hour} com{" "}
-              {appt.professional}
-            </p>
-          ))}
+            <div key={index} className={styles.appointment}>
+              <p>
+                {appt.date.toLocaleDateString()} às {appt.hour} com{" "}
+                {appt.professional}
+              </p>
+                <div className={styles.container}>
+                  <button className={styles.edit} onClick={() => openModal(appt.date, index)}>Mudar Agendamento</button>
+                  <button className={styles.edit} onClick={() => deleteAppointment(index)}>Remover Agendamento</button>
+                </div>
         </div>
-      </div>
+      ))}
+    </div>
     </main>
   );
 }
-

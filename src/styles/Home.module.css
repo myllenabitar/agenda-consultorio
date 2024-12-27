@@ -46,7 +46,7 @@
   
   .appointments {
     margin-top: 20px;
-    text-align: left;
+    text-align: center;
   }
   .usuario-logado {
     position: fixed;
@@ -57,4 +57,9 @@
     padding: 10px;
     border-radius: 5px;
   }
-  
+  .edit {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap:10px;
+  }
