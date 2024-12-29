@@ -78,6 +78,10 @@ export default function Agendamentos() {
     alert("Agendamento removido com sucesso!");
   };
 
+  function handleClose(): void {
+    closeModal();
+  }
+
   return (
     <main>
       <nav>
@@ -90,44 +94,48 @@ export default function Agendamentos() {
         <h1 className={styles.title}>Agenda de Consultas</h1>
         <Calendar
           onClickDay={(value) => openModal(value)}
-          className={styles.calendar}
+          className="react-calendar"
         />
       </div>
 
-        <Modal isOpen={modalIsOpen} onRequestClose={closeModal} appElement={document.getElementById('__next') || document.body}>
+        <Modal isOpen={modalIsOpen} onRequestClose={closeModal} appElement={document.getElementById('__next') || document.body} className={styles.modalContainer}> 
+          <button onClick={handleClose} className={styles.closeButton}>Fechar X</button>
           <h2>
             {editingIndex !== null
               ? `Editar agendamento para ${format(selectedDate!, "dd/MM/yyyy")}`
               : `Agendar para ${selectedDate ? format(selectedDate, "dd/MM/yyyy") : "Selecionar"}`}
           </h2>
-          <div>
-            <h3>Selecione um profissional:</h3>
-            <select
-              value={selectedProfessional || ""}
-              onChange={(e) => setSelectedProfessional(e.target.value)}
-            >
-              <option value="" disabled>
-                Escolha um profissional
+          <div className={styles.professionalSelect}>
+          <h3 className={styles.title}>Selecione um Profissional:</h3>
+          <select
+            value={selectedProfessional || ""}
+            onChange={(e) => setSelectedProfessional(e.target.value)}
+            className={styles.selectProfessional}
+          >
+            <option value="" disabled>
+              Escolha o seu Dentista
+            </option>
+            {professionals.map((professional) => (
+              <option key={professional} value={professional}>
+                {professional}
               </option>
-              {professionals.map((professional) => (
-                <option key={professional} value={professional}>
-                  {professional}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <h3>Horários disponíveis:</h3>
-            {availableHours.map((hour) => (
-              <button
-                key={hour}
-                className={styles.available}
-                onClick={() => handleAppointment(hour)}
-              >
-                {hour}
-              </button>
             ))}
-          </div>
+          </select>
+        </div>
+        
+        <div className={styles.hoursSection}>
+          <h3 className={styles.title}>Horários disponíveis:</h3>
+          {availableHours.map((hour) => (
+            <button
+              key={hour}
+              className={styles.available}
+              onClick={() => handleAppointment(hour)}
+            >
+              {hour}
+            </button>
+          ))}
+        </div>
+        
         </Modal>
         <div className={styles.appointments}>
   <h2 className={styles.appointmentsTitle}>Seus Agendamentos:</h2>

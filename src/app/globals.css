@@ -2,6 +2,10 @@
 *::after,
 *::before {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font);
+  color: var(--color);
 }
 
 html {
@@ -9,9 +13,9 @@ html {
   --font-title: roboto, sans-serif;
   --font-size: 1.25rem;
   --color: #3A3A3C;
-  --color-light: #edf;
-  --color-dark: #636366;
-  --color-full: #B8B57A;
+  --color-light: #84C5DE;
+  --color-dark: #333333;
+  --color-full: #84C5DE;
   --radius: 0.25rem;
 }
 
@@ -32,6 +36,7 @@ h2,
 h3 {
   font-family: var(--font-title);
   font-weight: bold;
+  color: var(--color);
 }
 
 h1,
@@ -56,15 +61,15 @@ label {
 }
 .botao-home{
   text-decoration: none;
-  color: #3A3A3C; 
+  color: var(--color); 
   padding: 8px 15px;
   border-radius: 5px;
   transition: all 0.3s ease;
   display: inline-block;
 }
 .menu a {
-  text-decoration: none;
-  color: #3A3A3C; 
+  text-decoration:none;
+  color:  var(--color); 
   padding: 8px 15px;
   border-radius: 5px;
   transition: all 0.3s ease;
@@ -72,12 +77,12 @@ label {
 }
 
 .menu a:hover {
-  background-color: #D1D1D6; 
+  background-color: var( --color-light); 
   color: #fff;
   transform: scale(1.1);
 }
 .menu a:hover {
-  background-color: #D1D1D6; 
+  background-color:  var( --color-light) ;
   color: #fff;
   transform: scale(1.1);
 }
@@ -85,18 +90,18 @@ label {
 
 .menu a:focus {
   outline: none;
-  box-shadow: 0 0 0 3px #D1D1D6;
+  box-shadow: 0 0 0 3px var(--color-light);
 }
 
 input,
 textarea {
   display: block;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-light);
   width: 100%;
   max-width: 30rem;
   padding: 0.75rem;
   border-radius: var(--radius);
-  background: #eee;
+  background:#fff;
   transition: 0.2s;
   margin-bottom: 1rem;
 }
@@ -111,7 +116,7 @@ input:focus,
 textarea:focus {
   outline: none;
   border-color: var(--color);
-  background: white;
+  background: #fff;
   box-shadow: 0 0 0 3px var(--color-light);
 }
 
@@ -146,7 +151,7 @@ button:disabled {
 }
 
 hr {
-  border: 2px solid #eee;
+  border: 2px solid #fff;
   margin: 2rem auto;
 }
 
@@ -167,12 +172,23 @@ img {
   list-style: none;
   padding: 0;
 }
-.usuario-logado {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
+@media (max-width: 768px) {
+  .menu {
+    display: flex;
+    flex-direction:row;
+    align-items: center; 
+
+  }
+  .menu a {
+    font-size: .9rem;
+    text-align: center; 
+    padding: 12px; 
+  }
+
+  .botao-home {
+    width: 100%; 
+    padding: 12px;
+    margin-top: 15px; 
+
+}
 }

@@ -1,22 +1,34 @@
+.logo img {
+  width: 50px; 
+  height: auto;
+}
+
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-  }
-  
-  .title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  justify-content: center;  
+  margin: 20px auto;  
+  background-color: var(--color-light);
+  padding: 20px;
+  border-radius: 10px;
+  width: fit-content;  
+  text-align: center;  
+}
+
+ .title {
     font-size: 2rem;
     margin-bottom: 20px;
+    color: var(--color-light);
   }
   
-  .calendar {
+.calendar {
     margin-bottom: 20px;
   }
   
-  .available {
+.available {
     background-color: #4caf50;
-    color: white;
+    color: var(--color-dark);
     margin: 5px;
     padding: 10px;
     border: none;
@@ -24,24 +36,68 @@
     border-radius: 5px;
   }
   
-  .unavailable {
-    background-color: #f44336;
-    color: white;
+.unavailable {
+    background-color:var(--color-disabled);
+    color:#fff;
     margin: 5px;
     padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: not-allowed;
   }
+  .modalContainer {
+    width: 80%; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    background-color: #fff;
+  }
   
+  .professionalSelect {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .selectProfessional {
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--color-light);
+    width: 100%;  
+    max-width: 300px;  
+    background-color: var(--color-light);
+    
+  }
+  
+  .hoursSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+  }
   .closeButton {
-    background-color: #555;
-    color: white;
+    background-color: #f44336; 
+    color: #fff;
     padding: 10px 15px;
     margin-top: 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: auto; 
+    display: block; 
+  }
+  
+  .closeButton:hover {
+    background-color: #d32f2f; 
   }
   
   .appointments {
@@ -50,21 +106,21 @@
     display: flex;
     flex-direction: column;
     align-items: center; 
-    justify-content: center
+    justify-content: center;
   }
   .appointmentsTitle {
     margin-bottom: 20px; 
     font-size: 1.5rem;
-    color: #333; 
+    color: var(--color-dark); 
   }
   .appointmentsTitle {
     margin-bottom: 20px;
     font-size: 1.5rem;
-    color: #333; 
+    color: var(--color-dark); 
   }
   
   .appointmentText {
-    color: #555;
+    color:var(--color-dark) ;
   }
   .appointmentBlock {
     display: flex;
@@ -72,8 +128,8 @@
     flex-direction: column;
     align-items: center; 
     width: fit-content; 
-    background-color: #555;
-    color: white;
+    background-color: var(--color-light);
+    color: var(--color-light);
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -88,8 +144,8 @@
   
   .edit {
     padding: 10px 15px;
-    background-color: #4caf50;
-    color: white;
+    background-color: #4caf50;  
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -102,7 +158,7 @@
   .delete {
     padding: 10px 15px;
     background-color: #f44336; 
-    color: white;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -111,4 +167,10 @@
   .delete:hover {
     background-color: #d32f2f; 
   }
-  
+  .footer{
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+  }
