@@ -58,6 +58,7 @@ export default function Page() {
           <p>Consultório Odontológico Bitar. Todos os direitos reservados.</p>
           <p>Agende já sua consulta!</p>
           <p>Telefone: (11) 99999-9999</p>
+          <p>E-mail: myllena.odo@gmail.com</p>
         </div>
       </footer>
 
