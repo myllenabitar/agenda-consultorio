@@ -1,14 +1,11 @@
-'use client';
-
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import Calendar from "react-calendar";
+import { useEffect, useState } from "react";
 import Modal from "react-modal";
+import Calendar from "react-calendar";
+import { format } from "date-fns";
 import "react-calendar/dist/Calendar.css";
 import styles from "../../styles/Home.module.css";
-import { format } from "date-fns";
 
-const professionals = ["Dra. Bitar", "Dra. Souza", "Dr. Oliveira"];
+const professionals = ["Dra. Myllena Bitar", "Dra. Priscilla Souza", "Dr. Pedro Felipe"];
 
 export default function Agendamentos() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -19,6 +16,11 @@ export default function Agendamentos() {
   >([]);
   const [availableHours, setAvailableHours] = useState<string[]>([]);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    
+    Modal.setAppElement(document.getElementById("__next") || document.body);
+  }, []);
 
   const generateRandomHours = () => {
     const allHours = [
@@ -78,16 +80,9 @@ export default function Agendamentos() {
     alert("Agendamento removido com sucesso!");
   };
 
-  function handleClose(): void {
-    closeModal();
-  }
-
   return (
     <main>
       <nav>
-        <Link className="botao-home" href="/">
-          ⬅ Home
-        </Link>
         <h1>Agendamento</h1>
       </nav>
       <div className={styles.container}>
@@ -98,14 +93,20 @@ export default function Agendamentos() {
         />
       </div>
 
-        <Modal isOpen={modalIsOpen} onRequestClose={closeModal} appElement={document.getElementById('__next') || document.body} className={styles.modalContainer}> 
-          <button onClick={handleClose} className={styles.closeButton}>Fechar X</button>
-          <h2>
-            {editingIndex !== null
-              ? `Editar agendamento para ${format(selectedDate!, "dd/MM/yyyy")}`
-              : `Agendar para ${selectedDate ? format(selectedDate, "dd/MM/yyyy") : "Selecionar"}`}
-          </h2>
-          <div className={styles.professionalSelect}>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className={styles.modalContainer}
+      >
+        <button onClick={closeModal} className={styles.closeButton}>
+          Fechar X
+        </button>
+        <h2>
+          {editingIndex !== null
+            ? `Editar agendamento para ${format(selectedDate!, "dd/MM/yyyy")}`
+            : `Agendar para ${selectedDate ? format(selectedDate, "dd/MM/yyyy") : "Selecionar"}`}
+        </h2>
+        <div className={styles.professionalSelect}>
           <h3 className={styles.title}>Selecione um Profissional:</h3>
           <select
             value={selectedProfessional || ""}
@@ -122,7 +123,7 @@ export default function Agendamentos() {
             ))}
           </select>
         </div>
-        
+
         <div className={styles.hoursSection}>
           <h3 className={styles.title}>Horários disponíveis:</h3>
           {availableHours.map((hour) => (
@@ -135,32 +136,32 @@ export default function Agendamentos() {
             </button>
           ))}
         </div>
-        
-        </Modal>
-        <div className={styles.appointments}>
-  <h2 className={styles.appointmentsTitle}>Seus Agendamentos:</h2>
-  {appointments.map((appt, index) => (
-    <div key={index} className={styles.appointmentBlock}>
-      <p>
-        {appt.date.toLocaleDateString()} às {appt.hour} com {appt.professional}
-      </p>
-      <div className={styles.buttonGroup}>
-        <button
-          className={styles.edit}
-          onClick={() => openModal(appt.date, index)}
-        >
-          Editar
-        </button>
-        <button
-          className={styles.delete}
-          onClick={() => deleteAppointment(index)}
-        >
-          X
-        </button>
+      </Modal>
+
+      <div className={styles.appointments}>
+        <h2 className={styles.appointmentsTitle}>Seus Agendamentos:</h2>
+        {appointments.map((appt, index) => (
+          <div key={index} className={styles.appointmentBlock}>
+            <p>
+              {appt.date.toLocaleDateString()} às {appt.hour} com {appt.professional}
+            </p>
+            <div className={styles.buttonGroup}>
+              <button
+                className={styles.edit}
+                onClick={() => openModal(appt.date, index)}
+              >
+                Editar
+              </button>
+              <button
+                className={styles.delete}
+                onClick={() => deleteAppointment(index)}
+              >
+                X
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
-    ))}
-  </div>
     </main>
   );
 }
