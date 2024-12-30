@@ -2,7 +2,8 @@
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import Calendar from "react-calendar";
-import { format } from "date-fns";
+import { format } from "date-fns-tz";
+import { ptBR } from "date-fns/locale";
 import "react-calendar/dist/Calendar.css";
 import styles from "../../styles/Home.module.css";
 
@@ -104,7 +105,7 @@ export default function Agendamentos() {
         </button>
         <h2>
           {editingIndex !== null
-            ? `Editar agendamento para ${format(selectedDate!, "dd/MM/yyyy")}`
+            ? `Editar agendamento para ${format(selectedDate!, "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}`
             : `Agendar para ${selectedDate ? format(selectedDate, "dd/MM/yyyy") : "Selecionar"}`}
         </h2>
         <div className={styles.professionalSelect}>
