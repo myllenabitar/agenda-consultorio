@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Modal from "react-modal";
 import Calendar from "react-calendar";
 import { format } from "date-fns-tz";
@@ -85,6 +86,7 @@ export default function Agendamentos() {
   return (
     <main>
       <nav>
+      <Link href="/" className="botao-home">⬅ Home</Link>
         <h1>Agendamento</h1>
       </nav>
       <div className={styles.container}>
