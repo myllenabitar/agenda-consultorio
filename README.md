@@ -24,6 +24,8 @@ A aplicação utiliza **Next.js** para garantir uma navegação rápida e eficie
   - Escolha o horário e o profissional disponível.
   - Visualize e gerencie os agendamentos realizados.
 
+    Confira as funcionalidades desse projeto no video:  https://youtu.be/RT-N-XVdBLk
+
 ---
 
 ## 🛠️ Tecnologias Utilizadas
