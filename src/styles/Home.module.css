@@ -50,6 +50,7 @@
     max-width: 600px; 
     margin: 0 auto; 
     background-color: #fff;
+    
   }
   
   .professionalSelect {
@@ -168,8 +169,8 @@
     background-color: #d32f2f; 
   }
   .footer{
-    background-color: var(--color-light);
-    color: var(--color-dark);
+    background-color: #fff;
+    color: var(--color-full);
     text-align: center;
     padding: 20px;
     margin-top: 20px;
