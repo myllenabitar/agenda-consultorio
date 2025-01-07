@@ -1,33 +1,37 @@
 # 📅 Agenda Consultório
 
-Sistema de agendamento de consultas para consultórios, com funcionalidades de login, cadastro e gerenciamento de horários. Desenvolvido utilizando **Next.JS** e **TypeScript** para criar uma aplicação moderna e eficiente.
+Sistema de agendamento de consultas para consultórios, com funcionalidades de login, cadastro e gerenciamento de horários. Desenvolvido utilizando **Next.js** e **TypeScript** para criar uma aplicação moderna e eficiente.
 
 ---
 
 ## 📝 Sobre o Projeto
-Este projeto visa facilitar o agendamento de consultas em consultórios. Com uma interface intuitiva, os usuários podem navegar entre a página inicial, realizar login, cadastrar-se e agendar horários com os profissionais disponíveis. A aplicação utiliza **Next.JS** para otimizar o desempenho e **TypeScript** para maior segurança no código.
+Este projeto visa otimizar o processo de agendamento de consultas em consultórios, permitindo que os usuários realizem login, se cadastrem, escolham profissionais e agendem horários de forma rápida e intuitiva. Com uma interface limpa e de fácil navegação, a aplicação busca melhorar a experiência tanto para os pacientes quanto para os profissionais.
+
+A aplicação utiliza **Next.js** para garantir uma navegação rápida e eficiente, e **TypeScript** para garantir maior robustez e segurança no código.
 
 ---
 
 ## 🚀 Status do Projeto
-🚧 **Projeto em Construção!** 🚧
+✨ **Projeto Concluído!** ✨
 
 ---
 
 ## ⚙️ Funcionalidades
-- Página inicial com menu de navegação.
-- Login e cadastro de usuários.
-- Agendamento de consultas:
-  - Seleção de datas no calendário.
-  - Escolha de horário e profissional.
-  - Visualização dos agendamentos realizados.
+- **Página Inicial**: Navegação simples e intuitiva.
+- **Login e Cadastro de Usuários**: Crie e acesse sua conta para gerenciar seus agendamentos.
+- **Agendamento de Consultas**:
+  - Selecione a data desejada no calendário.
+  - Escolha o horário e o profissional disponível.
+  - Visualize e gerencie os agendamentos realizados.
+
+    Confira as funcionalidades desse projeto no video:  https://youtu.be/RT-N-XVdBLk
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
-- **Next.JS**
-- **TypeScript**
-- **CSS**
+- **Next.js**: Framework para renderização do lado do servidor e páginas estáticas.
+- **TypeScript**: Linguagem que adiciona tipagem estática ao JavaScript para maior segurança e escalabilidade.
+- **CSS**: Estilização da interface.
 
 ---
 
