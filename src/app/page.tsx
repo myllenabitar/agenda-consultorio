@@ -55,10 +55,10 @@ export default function Page() {
       </main>
       <footer>
         <div className={styles.footer}>
-          <p>Consultório Odontológico Bitar. Todos os direitos reservados.</p>
           <p>Agende já sua consulta!</p>
           <p>Telefone: (11) 99999-9999</p>
           <p>E-mail: myllena.odo@gmail.com</p>
+          <p>Myllena Bitar &#169 2025. Todos os direitos reservados.</p>
         </div>
       </footer>
 
