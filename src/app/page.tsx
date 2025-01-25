@@ -58,7 +58,7 @@ export default function Page() {
           <p>Agende já sua consulta!</p>
           <p>Telefone: (11) 99999-9999</p>
           <p>E-mail: myllena.odo@gmail.com</p>
-          <p>Myllena Bitar &#169 2025. Todos os direitos reservados.</p>
+          <p>Myllena Bitar 2025. Todos os direitos reservados.</p>
         </div>
       </footer>
 
