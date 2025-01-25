@@ -36,6 +36,28 @@ A aplicação utiliza **Next.js** para garantir uma navegação rápida e eficie
 ---
 
 ## 📂 Como Rodar o Projeto
-1. Clone este repositório:
+1 - Clone este repositório:
    ```bash
    git clone https://github.com/seu-usuario/agenda-consultorio.git
+   ```
+2 - Navegue até a pasta do projeto:
+```bash
+cd agenda-consultorio
+```
+3 - Instale as dependências:
+```bash
+npm install
+```
+4 - Inicie o servidor de desenvolvimento:
+```bash
+npm run dev
+```
+Acesse o projeto em http://localhost:3000.
+
+## 📞 Contato
+Caso tenha dúvidas ou sugestões, entre em contato:
+Email: myllenabitar@gmail.com. 
+
+
+
+
